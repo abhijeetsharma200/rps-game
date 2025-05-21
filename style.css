@@ -1,0 +1,37 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.choices {
+  margin: 30px 0;
+}
+
+.choices img {
+  width: 100px;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.choices img:hover {
+  transform: scale(1.1);
+}
+
+.results {
+  font-size: 1.2em;
+  color: #444;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #222;
+}
