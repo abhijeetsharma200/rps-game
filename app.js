@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function play(playerChoice) {
   const imageMap = {
     rock: 'images/rock.svg',
@@ -12,17 +15,28 @@ function play(playerChoice) {
   document.getElementById('computer-choice').src = imageMap[computerChoice];
 
   const result = getResult(playerChoice, computerChoice);
-  document.getElementById('result').innerText = result;
+
+  const resultElement = document.getElementById('result');
+  resultElement.innerText = result.message;
+  resultElement.className = result.class;
+
+  if (result.class === 'win') playerScore++;
+  if (result.class === 'lose') computerScore++;
+
+  document.getElementById('player-score').innerText = playerScore;
+  document.getElementById('computer-score').innerText = computerScore;
 }
 
 function getResult(player, computer) {
-  if (player === computer) return "It's a draw!";
+  if (player === computer) return { message: "It's a draw!", class: 'draw' };
+
   if (
     (player === 'rock' && computer === 'scissors') ||
     (player === 'paper' && computer === 'rock') ||
     (player === 'scissors' && computer === 'paper')
   ) {
-    return "You win!";
+    return { message: "You win!", class: 'win' };
   }
-  return "You lose!";
+
+  return { message: "You lose!", class: 'lose' };
 }
